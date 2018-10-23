@@ -1,0 +1,47 @@
+view {
+  font-family: '微软雅黑,Verdana';
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix::after{
+  display: block;
+  height: 0;
+  clear: both;
+  content: '';
+}
+.logo {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16rpx 0;
+  text-align: center;
+  z-index: 99;
+  position: fixed;
+  top: 0rpx;
+  background: #4d4d4d;
+}
+.logo image {
+  width: 178rpx;
+}
+.green-btn {
+  border: 1px solid #86bc25;
+  color: #86bc25;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  padding: 4rpx 12rpx;
+  line-height: 24rpx;
+}
+.blue-btn {
+  border: 1px solid #00a3e0;
+  color: #00a3e0;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  padding: 4rpx 12rpx;
+  margin: 0 13rpx 18rpx 0;
+}
+.head {
+  margin-top: 43px;
+}

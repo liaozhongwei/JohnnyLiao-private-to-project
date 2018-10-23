@@ -1,0 +1,122 @@
+
+<view class="head">
+  <view class='logo {{styles.isTop?slidedown:slideup}}'>
+    <image src='../../image/logo.png'  mode='widthFix'></image>
+  </view>
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}" style="top: {{styles.scrllZind}}">
+    <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" data-text="最新洞察" bindtap="switchNav">最新洞察</view>
+    <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" data-text="勤启数智" bindtap="switchNav">勤启数智</view>
+    <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" data-text="热点话题" bindtap="switchNav">热点话题</view>
+    <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" data-text="德勤报告" bindtap="switchNav">德勤报告</view>
+    <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" data-text="德勤活动" bindtap="switchNav">德勤活动</view>
+    <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" data-text="行业前沿" bindtap="switchNav">行业前沿</view>
+    <view class="tab-item {{currentTab==6?'active':''}}" data-current="6" data-text="合规监管" bindtap="switchNav">合规监管</view>
+  </scroll-view>
+    <scroll-view 
+      scroll-y="true" 
+      class="scoll-h"
+      bindscroll="scroll" 
+      scroll-top="{{scrollTop}}" 
+      bindscrolltoupper="upper" 
+      bindscrolltolower="loadMore" 
+      style="height:{{winHeight}}rpx; margin-top:{{styles.scrollMarg}}">
+        <view class="header" hidden="{{hideHeader}}">
+          <view><image src='../../image/loading-up.gif'></image></view>
+          <view>推荐中...</view>
+        </view>
+        <view class='content-box'>
+          <block wx:for="{{allList}}" wx:key="key" wx:for-item="d">
+            <block  wx:for="{{d.list}}" wx:for-item="item" wx:for-index="idx">
+              <view class="list-box" wx:if="{{idx<3}}"> 
+                <view class="list-left">
+                  <navigator url='../detail/index?id={{item.insightId}}&type={{currentType}}'>
+                    <view class="list-title">
+                      <text>{{item.title}}</text>
+                    </view>
+                  </navigator>
+                  <view class="list-mark">
+                    <text>{{item.releaseTime}}</text>
+                  </view>
+                  <view class="list-mark">
+                    <image src='../../image/read.png' class="read"></image>
+                    <text>{{item.readCount}}</text>
+                  </view>
+                  <view class="list-mark">
+                    <image src='../../image/parise-gray.png' class="parise"></image>
+                    <text style='padding-left: 30rpx;'>{{item.top}}</text>
+                  </view>
+                </view>
+                <view class="list-right">
+                  <image src="{{item.iconW}}"></image>
+                </view>
+              </view>
+            </block>
+            <view class="notice" wx:if="{{d.announce != null}}">
+              <navigator url='../detail/index?id={{d.announce.announcementId}}&type={{currentType}}&notice=1'>
+                <text class="notice-icon">公告</text>
+                <text class="text-title">{{d.announce.title}}</text>
+              </navigator>
+            </view>
+            <block wx:for="{{d.list}}" wx:for-item="f" wx:for-index="ids">
+              <view class="notice" wx:if="{{ids==3}}">
+                <navigator url='../detail/index?id={{f.insightId}}&type={{currentType}}' style='margin-bottom: 16rpx;'>
+                  <text class="text-title">{{f.title}}</text>
+                  <view class="hot-artice">
+                    <view class="hot-artice-left">
+                      <image src="../../image/quotation.svg"></image>
+                    </view>
+                    <view class="hot-artice-right">
+                      <text>{{f.introduction}}</text>
+                    </view>
+                  </view>
+                </navigator>         
+                <view class="list-mark">
+                  <text>{{f.releaseTime}}</text>
+                </view>
+                <view class="list-mark">
+                  <image src='../../image/read.svg' class="read"></image>
+                  <text>{{f.readCount}}</text>
+                </view>
+                <view class="list-mark">
+                  <image src='../../image/parise-gray.svg' class="parise"></image>
+                  <text style='padding-left: 30rpx;'>{{f.top}}</text>
+                </view>
+                <view class="fr">
+                  <text class="green-btn">德勤报告</text>
+                </view>
+              </view>
+            </block>
+            <view wx:if="{{d.list.length}}">
+              <view class='product-box' wx:if="{{d.advertising!=null}}">
+                <view class='product clearfix'>
+                  <navigator url='../detail/index?id={{d.advertising.advertisingId}}&type={{currentType}}'>
+                  <view class='product-img'>
+                    <image src="../../image/default.png" wx:if="{{d.advertising.imageUrl==''}}"></image>
+                    <image src="{{d.advertising.imageUrl}}" wx:else></image>
+                  </view>
+                  <view class='product-title'>{{d.advertising.name}}</view>
+                  <view class='product-module'>
+                    <text class='fl'>{{d.advertising.remark}}</text>
+                    <text class='blue-btn fr' style='color: #00a3e0;'>产品</text>
+                  </view>
+                </navigator>
+                </view>
+              </view>
+              <view class='tweets-box clearfix' wx:else>
+                <navigator url='../detail/index?id={{d.insight.insightId}}&type={{currentType}}'>
+                  <image src='{{d.insight.iconW}}'></image>
+                  <text>{{d.insight.title}}</text>
+                  <text>推文</text>
+                </navigator>
+              </view>
+            </view>
+          </block>
+        </view>
+        <view class="bottom" hidden="{{hideBottom}}">
+          <image src='../../image/loading.gif'></image>
+        </view>
+    </scroll-view>
+    <view class='back-up' bindtap="goTop" wx:if="{{ floorstatus }}">
+      <image src='../../image/arrow-up.svg'></image>
+    </view>
+</view>

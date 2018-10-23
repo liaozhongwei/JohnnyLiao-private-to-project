@@ -1,0 +1,113 @@
+<view class='detail'>
+  <view class='title'>
+    <text>{{article.title}}</text>
+  </view>
+  <view class='subtitle'>
+    <text hidden='{{isNotice}}'>{{article.type}}</text>
+    <text wx:if='{{!isNotice}}'>{{article.releaseTime}}</text>
+    <text wx:else>{{article.startTime}}</text>
+  </view>
+  <view class="hot-artice clearfix" hidden='{{disNotice.tips}}'>
+    <view class="hot-artice-left">
+      <image src="../../image/quotation.svg"></image>
+    </view>
+    <view class="hot-artice-right">
+      <text>
+        {{article.introduction}}
+      </text>
+    </view>
+  </view>
+  <view class='read-time' hidden='{{disNotice.tips}}'>
+    <rich-text>
+      阅读大概需要<label>{{article.readTime}}</label>分钟
+    </rich-text>
+  </view>
+  <view class='segm-line' hidden='{{isNotice}}'>
+    <image src='../../image/lines.png'></image>
+  </view>
+  <view class='detail-content'>
+    <import src="../../wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>   
+  </view>
+</view>
+<view class='line' hidden='{{disNotice.tips}}'></view>
+<view class='recommand' wx:if="{{!isNotice}}">
+  <view class='reco-title'>
+    <text>为您推荐</text>
+  </view>
+  <block  wx:for="{{allList}}" wx:for-item="item" wx:for-index="idx">
+    <view class="list-box"> 
+      <view class="list-left">
+        <navigator url='../detail/index?id={{item.insightId}}&type={{currentType}}'>
+          <view>
+            <text class="list-title">{{item.title}}</text>
+          </view>
+        </navigator>
+        <view class="list-mark">
+          <text>{{item.releaseTime}}</text>
+        </view>
+        <view class="list-mark">
+          <image src='../../image/read.svg' class="read"></image>
+          <text>{{item.readCount}}</text>
+        </view>
+        <view class="list-mark">
+          <image src='../../image/parise-gray.svg' class="parise"></image>
+          <text style='padding-left: 30rpx;'>{{item.top}}</text>
+        </view>
+      </view>
+      <view class="list-right">
+        <image src="{{item.iconW}}"></image>
+      </view>
+    </view>
+  </block>
+</view>
+<view class='handler' hidden='{{disNotice.tips}}'>
+  <view class="handler-parise">
+    <rich-text bindtap='clickParise' data-num='0' wx:if="{{!isParise}}">
+        <dl>
+          <dt><image src='../../image/parise.svg'></image></dt>
+          <dd>点赞</dd>
+        </dl>
+        <text class='border-right'></text>
+    </rich-text>
+    <rich-text data-num='1' wx:else>
+        <dl>
+          <dt><image src='../../image/parise-success.svg'></image></dt>
+          <dd>点赞</dd>
+        </dl>
+    </rich-text>
+  </view>
+  <view class="handler-share" bindtap='showDialog'>
+    <rich-text>
+      <dl>
+        <dt><image src='../../image/share.svg'></image></dt>
+        <dd>分享</dd>
+      </dl>
+    </rich-text>
+  </view>
+</view>
+<view class='dialog-layer' hidden='{{isShare}}'>
+  <view class='dialog-box'>
+    <view class='dialog-share'>
+      <view class='weixin'>
+        <button open-type="share">
+          <view>
+            <image src='../../image/wx.png'></image>
+          </view>
+          转发
+        </button>
+      </view>
+      <view class='link'>
+        <button bindtap='copyLink'>
+          <view>
+            <image src='../../image/link.png'></image>
+          </view>
+          复制链接
+        </button>
+      </view>
+    </view>
+    <view class='dialog-cancel'>
+      <button class='cancel' bindtap='closeDialog'>取消分享</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,296 @@
+.detail {
+  box-sizing: border-box;
+  padding: 32rpx;
+}
+.title {
+  color: #000;
+  font-size: 46rpx;
+  line-height: 60rpx;
+  margin-bottom: 30rpx;
+}
+.recommand {
+  padding-bottom: 78rpx;
+}
+.subtitle {
+  color: #97999b;
+  font-size: 24rpx;
+  line-height: 21rpx;
+  letter-spacing: 1rpx;
+  margin-bottom: 51rpx;
+}
+.subtitle text:first-child {
+  margin-right: 30rpx;
+}
+.hot-artice {
+  background-color: #f4f4f4;
+  border-radius: 16rpx;
+  overflow: hidden;
+  margin-top: 31rpx;
+}
+.hot-artice .hot-artice-left, .hot-artice .hot-artice-right {
+  float: left;
+}
+.hot-artice .hot-artice-left {
+  width: 16%;
+}
+.hot-artice .hot-artice-right {
+  width: 84%;
+}
+.hot-artice .hot-artice-left image {
+  width:47rpx;
+  height:45rpx;
+  position:relative;
+  top:37rpx;
+  left:42rpx;
+
+}
+.hot-artice text {
+  font-size:28rpx;
+  line-height: 40rpx;
+  font-weight:normal;
+  margin-bottom:34rpx;
+  display:block;
+  /* margin-right:31rpx; */
+}
+.read-time {
+  color: #97999b;
+  font-size: 24rpx;
+  line-height: 58rpx;
+  width: 100%;
+  text-align: center;
+  /* margin-bottom: 32rpx; */
+}
+.segm-line {
+  width: 100%;
+  text-align: center;
+  margin: 32rpx 0;
+}
+.segm-line image {
+  width: 186rpx;
+  height: 21rpx;
+}
+.read-time label {
+  color: #86bc25;
+}
+.detail-content {
+  font-size: 30rpx;
+  line-height: 58rpx;
+  letter-spacing: 1rpx;
+  color: #000;
+  box-sizing: border-box;
+}
+.detail-content image {
+  width: 100%;
+}
+.detail-content view, .detail-content image {
+  max-width: 100%;
+}
+.line {
+  background-color: #e7e7e7;
+	border: solid 1px #e7e7e7;
+  width: 100%;
+  height: 15rpx;
+}
+.reco-title {
+  box-shadow: 0px 1px 0px 0px #d0d0ce;
+  color: #000;
+  font-size: 40rpx;
+  box-sizing: border-box;
+  padding: 14rpx 32rpx;
+  margin-bottom: 32rpx;
+}
+.reco-title text {
+  font-weight: bold;
+}
+.handler {
+  background-color:#f6f6f6;
+  box-shadow:0px -1px 0px 0px #d0d0ce;
+  box-sizing:border-box;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  left:0;
+  z-index:990;
+}
+.handler .handler-parise, .handler .handler-share {
+  width: 49.5%;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 29rpx 62rpx;
+  font-size: 28rpx;
+  letter-spacing: 1rpx;
+  position: relative;
+  background-color: #f6f6f6;
+}
+.handler .handler-parise dl, .handler .handler-share dl {
+  position: absolute;
+  left: 35%;
+  top: 30%;
+}
+.handler .handler-parise text {
+  background-size: 44rpx 39rpx;
+}
+.handler .handler-share text {
+  background-size: 44rpx 44rpx;
+}
+.handler text {
+  display: block;
+}
+.dialog-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.4);
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+.dialog-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #f6f6f6;
+  width: 100%;
+  height: 373rpx;
+  z-index: 101;
+}
+.dialog-box .dialog-share {
+  width: 100%;
+  height: 275rpx;
+  background: #f4f4f4;
+  box-sizing: border-box;
+  padding: 50rpx;
+}
+.dialog-box .dialog-cancel {
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  background: #fff;
+  font-size: 36rpx;
+  color: #000;
+  display: block;
+}
+.dialog-box .dialog-share .weixin, .dialog-box .dialog-share .link {
+  margin-right: 34rpx;
+  display: inline-block;
+  text-align: center;
+}
+.dialog-box .dialog-share .weixin view, .dialog-box .dialog-share .link view  {
+  box-sizing: border-box;
+  width: 102rpx;
+  height: 102rpx;
+  padding: 29rpx 24rpx;
+  background: #fff;
+  margin-bottom: 25rpx;
+  border-radius: 50%;
+}
+.dialog-box .dialog-share .weixin view image, .dialog-box .dialog-share .link view image {
+  width: 54rpx;
+  height: 54rpx;
+  display: block;
+}
+.dialog-box .dialog-share .weixin button, .dialog-box .dialog-share .link button {
+  display: block;
+  font-size: 28rpx;
+  color: #000;
+  background: #f6f6f6;
+  border: none;
+  text-align: center;
+}
+button::after {
+  border: none;
+} 
+.list-box, .notice {
+  box-sizing: border-box;
+  padding: 0rpx 31rpx;
+  margin-bottom: 30rpx;
+  padding-bottom: 38rpx;
+  border-bottom: 1rpx solid #e7e7e7;
+  overflow: hidden;
+}
+.list-box:first-child {
+  padding: 32rpx 0;
+}
+.list-box:last-child {
+  border-bottom: none;
+}
+.list-title {
+  font-size: 34rpx;
+  font-weight: normal;
+  letter-spacing: 2rpx;
+  line-height: 44rpx;
+  color: #000;
+  margin-bottom: 25rpx;
+  height: 161rpx;
+  display: inline-block;
+}
+.list-left {
+  width: 65%;
+  float: left;
+}
+.list-right {
+  width: 216rpx;
+  float: right; 
+  height: 216rpx;
+}
+.list-right image {
+  width: 216rpx;
+  height: 216rpx;
+  border-radius: 8rpx;
+	
+}
+.list-mark {
+  display: inline-block;
+  margin-right: 35rpx;
+  position: relative;
+}
+.list-left .list-mark:nth-child(3){
+  width: 90rpx;
+}
+.list-mark .read {
+  width: 24rpx;
+  height: 14rpx;
+  margin-right: 10rpx;
+  margin-bottom: 3rpx;
+}
+.list-mark .parise {
+  width: 24rpx;
+  height: 21rpx;
+  position: absolute;
+  left: 0;
+  bottom: 10rpx;
+}
+.list-mark text {
+  color: #97999b;
+  font-size: 24rpx;
+}
+.handler rich-text {
+  display:inline-block;
+  overflow:hidden;
+  box-sizing:border-box;
+}
+.handler rich-text dt, .handler-parise rich-text dd{
+  float: left;
+}
+.handler rich-text dt image {
+  margin-right: 10rpx;
+}
+.handler-parise rich-text dt image {
+  width: 44rpx;
+  height: 39rpx;
+}
+.handler-share rich-text dt image {
+  width: 44rpx;
+  height: 44rpx;
+}
+.border-right {
+  position: absolute;
+  left: 99%;
+  top: 26.5%;
+  width: 2rpx;
+  height: 44rpx;
+  background-color: #d0d0ce;
+  display: inline-block;
+}
